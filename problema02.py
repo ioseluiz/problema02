@@ -152,6 +152,8 @@ class Problema02():
 # 3 CLAROS
 
     def ejecutar_opcion_a_3claros(self):
+        print('opcion A')
+        print(self.lcd)
         #sumatoria de cargas puntuales
         suma_cargas_ab = self.sumatoria_cargas_puntuales(self.cargas_ab)
         suma_cargas_bc = self.sumatoria_cargas_puntuales(self.cargas_bc)
@@ -163,6 +165,7 @@ class Problema02():
         valor_R2 = suma_cargas_cd+ (self.dist_cd*self.lcd**3)/4
 
         # Solucion de Matrices
+        
 
         valor_a = 2 * (self.lab + self.lbc)
         valor_b = self.lbc
@@ -172,7 +175,9 @@ class Problema02():
         valor_e = -valor_L1 - valor_R1
         valor_f = -valor_L2 - valor_R2
         matriz = self.armar_matriz(valor_a,valor_b,valor_c,valor_d)
+        print(matriz)
         vector = self.armar_vector(valor_e, valor_f)
+        print(vector)
 
         inversa_matriz = np.linalg.inv(matriz)
 
@@ -287,7 +292,7 @@ class Problema02():
         return sumatoria
 
     def armar_matriz(self, a, b, c, d):
-        matriz = [[a,b],[b,c]]
+        matriz = [[a,b],[c,d]]
         return np.array(matriz)
 
     def armar_matriz_2(self,a,b,c,d,e,f,g,h,i):
